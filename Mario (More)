@@ -1,0 +1,45 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    //Define variables and prompt for Height
+    int i = get_int("Height: ");
+    int hash, space, height;
+        
+    
+    //Return prompt if Height outside of range
+    while (i < 1 || i > 8)
+    {
+        i = get_int("Height: ");
+    }
+    
+    
+    //Measure height, subtract 1 after every execution, repeat until Height = 0
+    for (height = i; height > 0; height--)
+    {
+        //Print spaces equal to Height -1
+        for (space = height - 1; space > 0; space--)
+        {
+            printf(" ");
+        }
+        
+        //Print hashes equal to row number
+        for (hash = i + 1 - height; hash > 0; hash--)
+        {
+            printf("#");
+        }
+        
+        //Print gap
+        printf("  ");
+        
+        //Repeat hash print
+        for (hash = i + 1 - height; hash > 0; hash--)
+        {
+            printf("#");
+        }
+        
+        //Start new line
+        printf("\n");
+    }
+}
